@@ -1,7 +1,25 @@
 <div>
-    <ul>
-    @foreach ($contacts as $contact)
-        <li>{{$contact->name }}</li>
-    @endforeach
-    </ul>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($contacts as $contact)
+            <tr>
+                <th scope="row">{{ $loop->iteration }}</th>
+                <td>{{ $contact->name }}</td>
+                <td>{{ $contact->phone }}</td>
+                <td>
+                    <button type="submit" class="btn btn-success btn-sm font-weight-bold">Edit</button>
+                    <button type="submit" class="btn btn-danger btn-sm font-weight-bold">Delete</button>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
