@@ -2,18 +2,33 @@
 
 namespace App\Http\Livewire;
 
+use App\Contact;
 use Livewire\Component;
 
 class ContactCreate extends Component
 {
-    // public $contacts;
+    public $name;
+    public $phone;
 
-    // h: $contacts dari parameter yg dikirim oleh contact-index
-    // k: mount() seperti __contsruct
-    // public function mount($contacts)
-    // {
-    //     $this->contacts = $contacts;
-    // }
+    public function store()
+    {
+        $contact = Contact::create([
+            'name' => $this->name,
+            'phone' => $this->phone
+        ]);
+
+        $this->resetInput();
+
+        $this->emit('contactStored', $contact);
+    }
+    
+    // private hanya dipanggil di sini saja
+    // tidak di dalam view component nya
+    private function resetInput()
+    {
+        $this->name = null;
+        $this->phone = null;
+    }
 
     public function render()
     {

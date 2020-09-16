@@ -2,6 +2,12 @@
     {{-- panggil comp dan lempar data ke comp --}}
     {{-- <livewire:contact-create :contacts="$contacts" /> --}}
 
+    @if(session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <livewire:contact-create />
     <hr>
 

@@ -1,22 +1,34 @@
 <div>
-    {{-- panggil data nya dari ContactCreate,php --}}
-    {{-- <ul>
-        @foreach ($contacts as $contact)
-        <li>{{ $contact->name }}</li>
-    @endforeach
-    </ul> --}}
-
-    <form action="">
+    <form wire:submit.prevent="store">
         <div class="form-group">
             <div class="form-row">
                 <div class="col">
-                    <input type="text" name="" id="" class="form-control" placeholder="Name">
+                    <input wire:model="name" type="text" name="" id="" class="form-control" placeholder="Name">
                 </div>
                 <div class="col">
-                    <input type="text" name="" id="" class="form-control" placeholder="Phone">
+                    <input wire:model="phone" type="text" name="" id="" class="form-control" placeholder="Phone">
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary font-weight-bold btn-block">Submit</button>
+        <button type="submit" class="btn btn-primary font-weight-bold">Submit</button>
     </form>
+
 </div>
+
+
+
+
+
+
+{{--
+    directive wire model
+    data binding, kita akan mengisi property name yg sudah dibuat di ContactCreate.php
+    wire:model="name" 
+    
+    cegah proses submit dengan mengarahkan ke method store pada ContactCreate 
+    <form wire:submit.prevent="store">
+        
+        
+
+
+    --}}
