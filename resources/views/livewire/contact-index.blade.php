@@ -1,5 +1,11 @@
 <div>
-    <table class="table">
+    {{-- panggil comp dan lempar data ke comp --}}
+    {{-- <livewire:contact-create :contacts="$contacts" /> --}}
+
+    <livewire:contact-create />
+    <hr>
+
+    <table class="table table-bordered">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
