@@ -29,9 +29,9 @@
                 <td>{{ $contact->name }}</td>
                 <td>{{ $contact->phone }}</td>
                 <td>
-                    <button wire:click="getContact({{ $contact->id }})" type="submit"
+                    <button wire:click="getContact({{ $contact->id }})"
                         class="btn btn-success btn-sm font-weight-bold">Edit</button>
-                    <button type="submit" class="btn btn-danger btn-sm font-weight-bold">Delete</button>
+                    <button wire:click="destroy({{ $contact->id }})" class="btn btn-danger btn-sm font-weight-bold">Delete</button>
                 </td>
             </tr>
             @endforeach

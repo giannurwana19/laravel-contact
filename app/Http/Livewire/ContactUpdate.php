@@ -34,7 +34,6 @@ class ContactUpdate extends Component
     
             $this->emit('contactUpdated', $contact);
         }
-
     }
 
     private function resetInput()
