@@ -22,17 +22,21 @@
                 <option value="15">15</option>
             </select>
         </div>
+        <div class="col">
+            <input type="text" wire:model="search" class="form-control form-control-sm" placeholder="search..."
+                autofocus>
+        </div>
     </div>
-    
+
     <hr>
 
     <table class="table table-bordered">
-        <thead class="thead-dark">
+        <thead class="thead-dark text-center">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Phone</th>
-                <th scope="col"></th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>

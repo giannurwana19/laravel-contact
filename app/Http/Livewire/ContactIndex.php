@@ -12,6 +12,7 @@ class ContactIndex extends Component
 
     public $status_update = false;
     public $paginate = 3;
+    public $search;
 
     protected $paginationTheme = 'bootstrap';
 
@@ -25,6 +26,13 @@ class ContactIndex extends Component
         $this->status_update = true;
         $contact = Contact::find($id);
         $this->emit('getContact', $contact);
+    }
+
+    protected $queryString = ['search'];
+
+    public function mount()
+    {
+        $this->search = request()->query('search', $this->search);  
     }
 
     public function destroy($id)
@@ -50,7 +58,9 @@ class ContactIndex extends Component
     public function render()
     {
         return view('livewire.contact-index', [
-            'contacts' => Contact::latest()->paginate($this->paginate)
+            'contacts' =>  $this->search === null ?
+                Contact::latest()->paginate($this->paginate) :
+                Contact::latest()->where('name', 'like', "%{$this->search}%")->paginate($this->paginate)
         ]);
     }
 }
@@ -75,4 +85,11 @@ class ContactIndex extends Component
 
 // k: default livewire sekaran menggunakan tailwind
 // jadi kita tambahkan ini untuk bootstrap
-// protected $paginationTheme = 'bootstrap';
+// p: protected $paginationTheme = 'bootstrap';
+
+// k: mount()
+// method ini akan dieksekusi terlebih dahulu sebelum ditampilkan ke blade
+// p: $this->search = request()->query('search', $this->search);
+// * kita akan set property search sesuai dengan requrest query string yg dikirmkan client, kemudian akan tampil di url
+// jangan lupa tambahkan ini
+// p: protected $queryString = ['search'];
