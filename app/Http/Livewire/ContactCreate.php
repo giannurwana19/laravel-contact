@@ -27,7 +27,7 @@ class ContactCreate extends Component
 
         $this->emit('contactStored', $contact);
     }
-    
+
     private function resetInput()
     {
         $this->name = null;

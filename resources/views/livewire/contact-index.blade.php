@@ -13,6 +13,19 @@
 
     <hr>
 
+    <div class="row">
+        <div class="col">
+            <select wire:model="paginate" class="form-control form-control-sm w-auto">
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+            </select>
+        </div>
+    </div>
+    
+    <hr>
+
     <table class="table table-bordered">
         <thead class="thead-dark">
             <tr>
@@ -31,7 +44,8 @@
                 <td>
                     <button wire:click="getContact({{ $contact->id }})"
                         class="btn btn-success btn-sm font-weight-bold">Edit</button>
-                    <button wire:click="destroy({{ $contact->id }})" class="btn btn-danger btn-sm font-weight-bold">Delete</button>
+                    <button wire:click="destroy({{ $contact->id }})"
+                        class="btn btn-danger btn-sm font-weight-bold">Delete</button>
                 </td>
             </tr>
             @endforeach
