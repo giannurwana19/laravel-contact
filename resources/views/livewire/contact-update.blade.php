@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="col">
-                    <input wire:model="phone" type="text" class="form-control @error('name') is-invalid @enderror"
+                    <input wire:model="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
                         placeholder="Phone">
                     @error('phone')
                     <div class="invalid-feedback">

@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="col">
-                    <input wire:model="phone" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Phone">
+                    <input wire:model="phone" type="text" class="form-control @error('phone') is-invalid @enderror" placeholder="Phone">
                     @error('phone')
                     <div class="invalid-feedback">
                         {{ $message }}

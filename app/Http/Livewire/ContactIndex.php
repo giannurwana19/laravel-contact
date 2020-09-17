@@ -11,7 +11,8 @@ class ContactIndex extends Component
     public $status_update = false;
 
     protected $listeners = [
-        'contactStored' => 'handleStored'
+        'contactStored' => 'handleStored',
+        'contactUpdated' => 'handleUpdated'
     ];
 
     public function getContact($id)
@@ -24,6 +25,11 @@ class ContactIndex extends Component
     public function handleStored($contact)
     {
         session()->flash('message', "Contact {$contact['name']} was stored!");
+    }
+
+    public function handleUpdated($contact)
+    {
+        session()->flash('message', "Contact {$contact['name']} was updated!");
     }
 
     public function render()

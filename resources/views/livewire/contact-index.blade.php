@@ -1,12 +1,12 @@
 <div>
     @if(session('message'))
-        <div class="alert alert-success">
-            {{ session('message') }}
-        </div>
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
     @endif
 
     @if($status_update)
-        <livewire:contact-update />
+    <livewire:contact-update />
     @else
     <livewire:contact-create />
     @endif
@@ -29,7 +29,8 @@
                 <td>{{ $contact->name }}</td>
                 <td>{{ $contact->phone }}</td>
                 <td>
-                    <button wire:click="getContact({{ $contact->id }})" type="submit" class="btn btn-success btn-sm font-weight-bold">Edit</button>
+                    <button wire:click="getContact({{ $contact->id }})" type="submit"
+                        class="btn btn-success btn-sm font-weight-bold">Edit</button>
                     <button type="submit" class="btn btn-danger btn-sm font-weight-bold">Delete</button>
                 </td>
             </tr>
@@ -46,8 +47,8 @@
 {{-- 
     
     
-    {{-- panggil comp dan lempar data ke comp --}}
-    {{-- <livewire:contact-create :contacts="$contacts" /> --}}
+    panggil comp dan lempar data ke comp
+    <livewire:contact-create :contacts="$contacts" />
     
     
     
