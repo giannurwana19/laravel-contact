@@ -7,6 +7,35 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+
+## Membuat project crud contact sederhana dengan laravel7 + Livewire
+### Nama Project: laravel-contact
+
+### Instalasi Project : 
+1. Pastikan teman-teman sudah menginstall composer dan PHP versi 7 keatas
+2. jalankan perintah berikut untuk menginstall package-package yang diperlukan
+   ```
+   composer install
+   ```
+3. buat database baru dengan nama laravel_contact pada phpmyadmin atau table
+4. copy file .env.example, pastee di tempat yg sama & ganti nama filenya jadi .env
+5. pada file .env pada baris 12, isikan: `DB_DATABASE=laravel_contact`
+6. buka terminal atau cmd, jalankan perintah seeder nya untuk men-_generate_ 10 data kontak
+
+   ``` 
+   php artisan db:seed
+   ```
+7. untuk menjalankan aplikasi, jalankan perintah:
+   ```
+   php artisan serve
+   ```
+  
+#### Credits by : Gian Nurwana
+instagram: giannurwana19
+
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
