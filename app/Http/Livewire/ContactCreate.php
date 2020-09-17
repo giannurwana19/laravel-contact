@@ -10,8 +10,14 @@ class ContactCreate extends Component
     public $name;
     public $phone;
 
+
     public function store()
     {
+        $this->validate([
+            'name' => 'required|min:3',
+            'phone' => 'required|min:3'
+        ]);
+
         $contact = Contact::create([
             'name' => $this->name,
             'phone' => $this->phone
@@ -22,8 +28,6 @@ class ContactCreate extends Component
         $this->emit('contactStored', $contact);
     }
     
-    // private hanya dipanggil di sini saja
-    // tidak di dalam view component nya
     private function resetInput()
     {
         $this->name = null;
@@ -35,3 +39,11 @@ class ContactCreate extends Component
         return view('livewire.contact-create');
     }
 }
+
+
+
+
+
+// ================================================================
+// private hanya dipanggil di sini saja
+// tidak di dalam view component nya
