@@ -4,11 +4,15 @@ namespace App\Http\Livewire;
 
 use App\Contact;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ContactIndex extends Component
 {
-    public $contacts;
+    use WithPagination;
+
     public $status_update = false;
+
+    protected $paginationTheme = 'bootstrap';
 
     protected $listeners = [
         'contactStored' => 'handleStored',
@@ -44,8 +48,9 @@ class ContactIndex extends Component
 
     public function render()
     {
-        $this->contacts = Contact::latest()->get();
-        return view('livewire.contact-index');
+        return view('livewire.contact-index', [
+            'contacts' => Contact::latest()->paginate(3)
+        ]);
     }
 }
 
@@ -54,13 +59,19 @@ class ContactIndex extends Component
 
 
 
-// dd() pada livewire menmunculkan seperti modal
+// k: dd() pada livewire menmunculkan seperti modal
 
-// dengan menggunakan emit()
+// k: dengan menggunakan emit()
 // setiap comp yg kita panggil, maka akan melakukan proses re render
 // artinya melakukan refresh pada comp tsb
 
-// $contact pd method handleStored() dari ContactCreate.php
+// k: $contact pd method handleStored() dari ContactCreate.php
 // $contact berbentuk array
 // setiap terjadi emit dengan key contactStored dimanapun,
 // maka akan menjalan kan method yang ada di comp ContactIndex ini 
+
+// k: untuk menggunakan pagination, definisikan variablenya di dalam view
+
+// k: default livewire sekaran menggunakan tailwind
+// jadi kita tambahkan ini untuk bootstrap
+// protected $paginationTheme = 'bootstrap';
