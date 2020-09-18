@@ -8,7 +8,7 @@
 </p>
 
 
-## Membuat project crud contact sederhana dengan laravel7 + Livewire
+## Membuat project crud contact sederhana dengan laravel 7 + Livewire v2
 ### Nama Project: laravel-contact
 
 ### Instalasi Project : 
@@ -17,9 +17,14 @@
    ```
    composer install
    ```
-3. buat database baru dengan nama laravel_contact pada phpmyadmin atau table
+3. buat database baru dengan nama laravel_contact (disesuaikan) pada phpmyadmin atau aplikasi tableplus
 4. copy file .env.example, pastee di tempat yg sama & ganti nama filenya jadi .env
-5. pada file .env pada baris 12, isikan: `DB_DATABASE=laravel_contact`
+5. pada file .env, kemudia setting database, username & passwrod nya (disesuaikan)
+   ```
+   DB_DATABASE=laravel_contact
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 6. buka terminal atau cmd, jalankan perintah seeder nya untuk men-_generate_ 10 data kontak
 
    ``` 
@@ -29,12 +34,9 @@
    ```
    php artisan serve
    ```
-  
-#### Credits by : Gian Nurwana
-instagram: giannurwana19
 
-
-
+#### Note:
+   1. disesuaikan: setting konfigurasi bisa diubah sesuai dengan komputer lokal masing-masing
 
 ## About Laravel
 
